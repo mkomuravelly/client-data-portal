@@ -17,6 +17,7 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import Person from '@material-ui/icons/PersonTwoTone';
 import Search from '@material-ui/icons/SearchTwoTone';
+import { Link } from 'react-router-dom';
 
 const drawerWidth = 240;
 
@@ -146,12 +147,23 @@ class Home extends Component {
                     </div>
                     <Divider />
                     <List>
+                        {/* <Link to="/search"><ListItem button >
+                               <ListItemIcon><Search /></ListItemIcon> 
+                               <ListItemText primary="Search" />
+                            </ListItem> </Link>
+                            <Link to="/person"> <ListItem button >
+                                <ListItemIcon><Person /></ListItemIcon> 
+                                <ListItemText primary="Person" />
+                        </ListItem></Link> */}
+                        
                         {['Search', 'Admin'].map((text, index) => (
-                            <ListItem button key={text}>
-                                <ListItemIcon>{index % 2 === 0 ? <Search /> : <Person />}</ListItemIcon>
+                         <ListItem button key={text}>
+                                <ListItemIcon>{index % 2 === 0 ?<Link to = "/search"><Search /> </Link>: 
+                                        <Link to = "/person"><Person /> </Link>}</ListItemIcon>
                                 <ListItemText primary={text} />
                             </ListItem>
                         ))}
+
                     </List>
                 </Drawer>
                 <main className={classes.content}>
